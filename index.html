@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cuando Estás Triste 💛</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #b3cde0, #f1f1f1);
+      color: #333;
+      overflow-x: hidden;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      animation: fadeIn 3s ease;
+    }
+
+    header h1 {
+      background-color: rgba(255,255,255,0.85);
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 2.2rem;
+      line-height: 1.4;
+      animation: zoomIn 1.5s ease;
+      max-width: 80%;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .motivador {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #2b3a42;
+      animation: zoomIn 1s ease-in-out;
+    }
+
+    .frase {
+      font-size: 1.6rem;
+      text-align: center;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 700px;
+      background-color: #fffbe6;
+      border: 2px dashed #f0c36d;
+      border-radius: 15px;
+      animation: fadeIn 2s ease-in-out;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .imagenes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      width: 280px;
+      height: 380px;
+      perspective: 1000px;
+      animation: zoomIn 1s ease;
+      margin-bottom: 20px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .card-front {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-back {
+      background-color: #fff;
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .audio-section {
+      text-align: center;
+      margin: 60px 0 40px;
+      animation: fadeIn 2s ease;
+    }
+
+    .audio-section button {
+      background: #7cb4b8;
+      color: white;
+      padding: 14px 24px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .audio-section button:hover {
+      background: #519fa2;
+    }
+
+    .audio-section audio {
+      width: 100%;
+      max-width: 800px;
+      margin-top: 20px;
+      outline: none;
+    }
+
+    .escribir {
+      text-align: center;
+      margin-top: 60px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .escribir textarea {
+      width: 90%;
+      max-width: 600px;
+      height: 140px;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .galeria-videos {
+      margin-top: 70px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .galeria-videos .motivador {
+      margin-bottom: 30px;
+      animation: zoomIn 1s ease-in-out;
+    }
+
+    .videos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .video-card {
+      width: 320px;
+      height: 180px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+      animation: zoomIn 1s ease;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-card:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #eee;
+      font-size: 1rem;
+      border-top: 1px solid #ccc;
+      margin-top: 60px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    footer button {
+      margin-top: 15px;
+      background-color: #7cb4b8;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+        height: 350px;
+      }
+
+      .video-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Todo estará bien 💛<br>Respira y sigue</h1>
+  </header>
+
+  <section>
+    <div class="motivador">Frases que robe con buenas intenciones.</div>
+    <div class="frase" id="fraseMotivadora">Cargando frase...</div>
+  </section>
+
+  <section class="audio-section">
+    <button onclick="document.getElementById('musicaFondo').play()">🌿 Toca para reproducir música suave</button>
+    <audio id="musicaFondo" loop>
+      <source src="recursos/A1.dat" type="audio/mpeg">
+    </audio>
+  </section>
+
+  <section>
+    <div class="motivador">Ira, piches gatos bonitos con frases ✨</div>
+    <div class="imagenes">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('recursos/OIP.jpg');"></div>
+          <div class="card-back">Cada día es una nueva oportunidad 💫</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('recursos/2.jpg');"></div>
+          <div class="card-back">Confía en ti, lo estás haciendo bien 💛</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front" style="background-image: url('recursos/3.jpg');"></div>
+          <div class="card-back">Después de la tormenta siempre sale el sol ☀️</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria-videos">
+    <div class="motivador">Relájate un rato con estos videos 🎬</div>
+    <div class="videos-container">
+      <div class="video-card">
+        <iframe src="recursos/V1.mp4" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="recursos/V2.mp4" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="recursos/V3.mp4" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="recursos/V4.mp4" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="recursos/V5.mp4" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="recursos/V6.mp4" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="recursos/V7.mp4" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="escribir">
+    <div class="motivador">Desahógate en este recuadro. 📝</div>
+    <textarea placeholder="Este es tu espacio para desahogarte... escribe con libertad.    Lo siento pero no puedo dejarte me preocupa mucho el estres que manejas y la tristeza que tienes"></textarea>
+  </section>
+
+  <footer>
+    Incluso la noche más oscura termina con el amanecer.  
+    <br><br>
+    <button onclick="window.scrollTo(0, 0)">🔄 Volver al inicio</button>
+    <br><br>
+    <button onclick="window.location.href='tulipan.html'">👀 Ver parte secreta</button>
+  </footer>
+  
+
+  <script>
+    const frases = [
+      "No estás solo, incluso en la oscuridad hay una chispa de luz.",
+      "Eres más fuerte de lo que piensas.",
+      "Hoy puede ser difícil, pero no durará para siempre.",
+      "Permítete sentir, y luego suéltalo con amor.",
+      "Respira... todo va a estar bien.",
+      "Has superado tanto, y puedes con esto también.",
+      "El sol volverá a salir mañana."
+    ];
+
+    let index = 0;
+    const fraseElement = document.getElementById('fraseMotivadora');
+
+    function mostrarFrase() {
+      fraseElement.textContent = frases[index];
+      index = (index + 1) % frases.length;
+    }
+
+    mostrarFrase();
+    setInterval(mostrarFrase, 6000);
+  </script>
+
+  
+
+</body>
+</html>
